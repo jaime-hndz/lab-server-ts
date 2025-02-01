@@ -6,8 +6,7 @@
 * módulo de productos: ✅
 * código organizado y comentado: ✅
 * validaciones y paginación: ✅ 
-* subir a Lambda: 🔄
-* Frontend: 🔄
+* subir a Lambda: 🔄 (subi el lambda pero sigue lanzando internal error)
 
 ## Postman:
 
