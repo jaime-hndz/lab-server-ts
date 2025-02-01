@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
+//middleware que revisa el token 
 export function authMiddleware(req: Request, res: Response, next: NextFunction) {
     const token = req.header("Authorization");
     if (!token) {

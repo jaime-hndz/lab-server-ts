@@ -16,6 +16,8 @@ function isValidProductData(data: any): data is ProductRequestBody {
 }
 
 export class ProductController {
+  
+// Método para obtener todos los productos con paginación.
   static async getAllProducts(req: Request, res: Response) {
     const { page = 1, limit = 10 } = req.query;
     const skip = (Number(page) - 1) * Number(limit);
@@ -23,6 +25,7 @@ export class ProductController {
     res.json(productos);
   }
 
+  // Método para crear un nuevo producto validando los datos recibidos en el cuerpo de la solicitud.
   static async createProduct(req: Request, res: Response) {
     try {
       const requestBody = req.body;
@@ -40,6 +43,7 @@ export class ProductController {
     }
   }
 
+  // Método para actualizar un producto existente después de validar los datos y buscar el producto por ID.
   static async updateProduct(req: Request, res: Response) {
     try {
       const requestBody = req.body;
@@ -63,6 +67,7 @@ export class ProductController {
     }
   }
 
+  // Método para eliminar un producto por ID y devolver una respuesta con el resultado.
   static async deleteProduct(req: Request, res: Response) {
     try {
       const producto = await Product.findByIdAndDelete(req.params.id);

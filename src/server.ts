@@ -18,6 +18,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+//instacia de la base de datos
 db; 
 
 // Rutas
@@ -32,6 +33,7 @@ const options = {
     cert: fs.readFileSync("server.crt"),
 };
 
+//ruta segura para probar que funciona
 app.get("/", (req:Request, res:any) => {
     res.send("API Segura con Express y MongoDB 🚀");
   });

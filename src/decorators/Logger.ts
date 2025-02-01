@@ -1,3 +1,4 @@
+// Decorador que registra en consola el nombre del método y sus argumentos al ser invocado.
 export function Logger(target: any, key: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
 

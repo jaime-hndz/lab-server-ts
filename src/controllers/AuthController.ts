@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/User";
 import { Logger } from "../decorators/Logger";
 
-
 export class AuthController {
+  // Método para registrar un nuevo usuario, encriptando la contraseña y guardando en la base de datos.
   @Logger
   static async register(req: express.Request, res: express.Response) {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -18,6 +18,7 @@ export class AuthController {
     res.status(201).json({ message: "Usuario registrado" });
   }
 
+  // Método para autenticar un usuario, verificando el nombre de usuario y la contraseña.
   @Logger
   static async login(req: express.Request, res: express.Response) {
     const user = await User.findOne({ username: req.body.username });
@@ -36,4 +37,3 @@ export class AuthController {
     }
   }
 }
-

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+//se conecta a la db y devuelve una instacio cuando se solicite
 class Database {
     private static instance: Database;
 
