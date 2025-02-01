@@ -7,6 +7,8 @@ const helmet = require("helmet");
 const cors = require("cors");
 const { authRouter } = require("./routes/auth");
 const { userRouter } = require("./routes/users");
+const { productRouter } = require("./routes/products");
+
 require("reflect-metadata"); 
 
 const app = express();
@@ -21,6 +23,8 @@ db;
 // Rutas
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/products", productRouter);
+
 
 // Configurar HTTPS
 const options = {

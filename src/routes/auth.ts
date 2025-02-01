@@ -16,8 +16,9 @@ router.post("/register", async (req, res) => {
 
     await newUser.save();
     res.status(201).json({ message: "Usuario registrado" });
-  } catch (error:any) {
-    res.status(500).json({ error: error.message });
+  } catch (error:unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    res.status(500).json({ error: errorMessage });
   }
 });
 
